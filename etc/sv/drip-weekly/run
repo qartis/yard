@@ -1,0 +1,5 @@
+#!/bin/sh
+
+PATH=/root/bin:$PATH
+
+exec snooze -D/1 -H8,10 announce drip-weekly

@@ -1,0 +1,4 @@
+#!/bin/sh
+GPIO_NO=$(($1 + 488))
+
+echo $GPIO_NO > /sys/class/gpio/unexport 2>/dev/null

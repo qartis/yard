@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [ -e /tmp/lawn_skip_zones ]; then
+    rm -f /tmp/lawn_skip_zones
+
+    exec announce lawn-zone-2
+else
+    touch /tmp/lawn_skip_zones
+
+    exec announce lawn-all-zones
+fi

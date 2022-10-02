@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. /root/bin/lib.sh
+
+CHANNEL="$1"
+DURATION="$2"
+
+[ $# -eq 2 ] || exit 1
+
+is_pos_int "$CHANNEL" || exit 1
+in_range 0 "$CHANNEL" 15 || exit 1
+
+is_pos_int "$DURATION" || exit 1
+in_range 1 $DURATION 600 || exit 1
+
+trap 'disable-channel $CHANNEL' EXIT INT TERM HUP
+
+enable-channel $CHANNEL
+interruptible_sleep $DURATION

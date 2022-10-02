@@ -1,0 +1,6 @@
+#!/bin/sh
+
+PATH=/root/bin:$PATH
+
+#exec snooze -D* -H7 xargs -a argv ./run2
+exec snooze -D/1 -H7 announce drip-daily

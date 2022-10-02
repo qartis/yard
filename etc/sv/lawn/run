@@ -1,0 +1,5 @@
+#!/bin/sh
+
+PATH=/root/bin:$PATH
+
+exec snooze -D/1 -H6,8,11 announce lawn-alternate

@@ -1,0 +1,38 @@
+#!/bin/sh
+
+trap "exit" INT TERM
+trap "kill 0" EXIT
+
+interruptible () {
+  $* &
+  wait $!
+}
+
+PHASE_DURATION_S=60
+
+lawn-zone-0 $PHASE_DURATION_S &
+wait
+
+lawn-zone-1 $PHASE_DURATION_S &
+wait
+
+lawn-zone-2 $PHASE_DURATION_S &
+wait
+
+
+lawn-zone-0 $PHASE_DURATION_S &
+lawn-zone-1 $PHASE_DURATION_S &
+wait
+
+lawn-zone-1 $PHASE_DURATION_S &
+lawn-zone-2 $PHASE_DURATION_S &
+wait
+
+lawn-zone-0 $PHASE_DURATION_S &
+lawn-zone-2 $PHASE_DURATION_S &
+wait
+
+lawn-zone-0 $PHASE_DURATION_S &
+lawn-zone-1 $PHASE_DURATION_S &
+lawn-zone-2 $PHASE_DURATION_S &
+wait

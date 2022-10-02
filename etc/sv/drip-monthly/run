@@ -1,0 +1,5 @@
+#!/bin/sh
+
+PATH=/root/bin:$PATH
+
+exec snooze -D/14 -H9 announce drip-monthly

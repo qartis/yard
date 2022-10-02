@@ -1,0 +1,5 @@
+#!/bin/sh
+
+DEFAULT_DURATION_S=300
+
+exec pulse-channel 0 ${1:-$DEFAULT_DURATION_S}

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo running "$@" | moreutils_ts >&2
+
+exec "$@"

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+. ~/bin/lib.sh
+
+CHANNEL="$1"
+
+is_pos_int "$CHANNEL" || exit 1
+in_range 0 "$CHANNEL" 15 || exit 1
+
+if ! channel_can_run_indefinitely "$CHANNEL"; then
+	echo channel cannot run indefinitely
+	exit 1
+fi
+
+enable-channel "$CHANNEL"

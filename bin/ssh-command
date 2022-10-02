@@ -1,0 +1,13 @@
+#!/bin/sh
+
+PATH=$PATH:~/bin
+
+COMMAND="$1"
+shift
+
+case "$COMMAND" in
+on)              ~/bin/on "$@" ;;
+off)             ~/bin/off "$@" ;;
+pulse-channel)   ~/bin/pulse-channel "$@" ;;
+*)               echo invalid ssh_command ;;
+esac
